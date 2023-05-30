@@ -1,4 +1,7 @@
+import "../styles/post.scss";
+
 export default function Post1() {
+    return (
     <div className="post">
         <div className="post-image">
             <img src="https://www.gamereactor.cn/media/37/lordsfallengameplay_4023793b.jpg"></img>
@@ -16,4 +19,5 @@ export default function Post1() {
             </p>
         </div>
     </div>
+    )
 }

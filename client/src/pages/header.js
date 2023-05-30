@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
+import "../styles/header.scss";
+
 export default function Header() {
+    return (
     <main>
-        <header>
-            <a href="" className="Logo">My Blog</a>
+        <header className="head">
+            <Link href="/" className="logo">My Blog</Link>
             <nav>
-                <a href="">Login</a>
-                <a href="">Register</a>
+                <Link to="/login" className="login">Login</Link>
+                <Link to="/register" classname="register">Register</Link>
             </nav>
         </header>
     </main>
+    )
 }
