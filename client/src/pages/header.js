@@ -8,7 +8,7 @@ export default function Header() {
             <Link href="/" className="logo">My Blog</Link>
             <nav>
                 <Link to="/login" className="login">Login</Link>
-                <Link to="/register" classname="register">Register</Link>
+                <Link to="/register" className="register">Register</Link>
             </nav>
         </header>
     </main>
