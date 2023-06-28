@@ -7,17 +7,22 @@ import Layout from './layout';
 import IndexPage from './pages/index-page';
 import Login from './pages/login';
 import Register from './pages/register';
+import { UserContextProvider } from './UserContext';
+import CreatePost from './pages/create-post';
 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<IndexPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Route>
-    </Routes>
+    <UserContextProvider>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<IndexPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/create" element={<CreatePost />} />
+        </Route>
+      </Routes>
+    </UserContextProvider>
   );
 }
 
