@@ -1,22 +1,21 @@
 import "../styles/post.scss";
+import {formatISO9075} from "date-fns";
+import {Link} from "react-router-dom";
 
-export default function Post1() {
+export default function Post1({title,summary,cover,content,createdAt,author}) {
+
     return (
     <div className="post">
         <div className="post-image">
-            <img src="https://www.gamereactor.cn/media/37/lordsfallengameplay_4023793b.jpg"></img>
+            <img src={'http://localhost:4000'+cover} alt="" />
         </div>
         <div className="post-text">
-            <h2>Latest <i>Lords of the Fallen</i> Trailer Showcases a New and Rather Interesting Art Direction</h2>
+            <h2>{title}</h2>
             <p className="info">
-                <a className="author">by Adam Merjil at </a>
-                <time>8:38pm on 24 May, 2023</time>
+                <a className="author">{author.username}</a>
+                <time>{formatISO9075(new Date(createdAt))}</time>
             </p>
-            <p className="summary">
-                Est officia enim non qui. 
-                Irure eu magna ullamco cupidatat voluptate sunt et ut do eiusmod. 
-                Do et amet commodo exercitation anim voluptate ex adipisicing sunt non.
-            </p>
+            <p className="summary">{summary}</p>
         </div>
     </div>
     )
