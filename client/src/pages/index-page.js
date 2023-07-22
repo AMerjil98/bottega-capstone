@@ -4,7 +4,7 @@ import Post1 from "./post-1";
 export default function IndexPage() {
     const [posts,setPosts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:4000/post').then(response => {
+        fetch('https://vidyanews-2dd3196bd5f5.herokuapp.com/post').then(response => {
             response.json().then(posts => {
                 setPosts(posts);
             });

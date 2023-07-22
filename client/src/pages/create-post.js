@@ -1,4 +1,3 @@
-import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 import '../styles/create-new.scss';
 import { useState } from "react";
@@ -18,7 +17,7 @@ export default function CreatePost() {
         data.set('content', content);
         data.set('file', files[0]);
         ev.preventDefault();
-        const response = await fetch('http://localhost:4000/post', {
+        const response = await fetch('https://vidyanews-2dd3196bd5f5.herokuapp.com/post', {
             method: 'POST',
             body: data,
             credentials: 'include',

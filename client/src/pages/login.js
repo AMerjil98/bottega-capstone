@@ -10,7 +10,7 @@ export default function Login() {
     const {setUserInfo} = useContext(UserContext);
     async function login(ev) {
         ev.preventDefault();
-        const response = await fetch('http://localhost:4000/login', {
+        const response = await fetch('https://vidyanews-2dd3196bd5f5.herokuapp.com/login', {
             method: 'POST',
             body: JSON.stringify({username,password}),
             headers: {'Content-Type':'application/json'},

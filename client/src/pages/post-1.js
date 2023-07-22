@@ -8,7 +8,7 @@ export default function Post1({_id, title,summary,cover,content,createdAt,author
     <div className="post">
         <div className="post-image">
             <Link to={`/post/${_id}`}>
-                <img src={'http://localhost:4000'+cover.replace('/uploads', '')} alt="" />
+                <img src={'https://vidyanews-2dd3196bd5f5.herokuapp.com/'+cover.replace('/uploads', '')} alt="" />
             </Link>
         </div>
         <div className="post-text">
