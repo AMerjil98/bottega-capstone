@@ -1,5 +1,5 @@
 body {
-  color: #222;
+  color: #4f4e4e;
 } 
 img {
   max-width: 100%;
@@ -17,9 +17,11 @@ a {
 buttons {
   cursor: pointer;
 }
-
+#root {
+  background-color: #3a2243e8;
+}
 div.post-page a {
-  color: #333;
+  color: #4f4e4e;
   text-decoration: underline;
 }
 div.post-page h1 {
@@ -42,7 +44,7 @@ div.edit-row {
   justify-content: center;
 }
 div.post-page a.edit-btn {
-  background-color: #333;
+  background-color: #4f4e4e;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;

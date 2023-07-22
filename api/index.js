@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require("mongoose");
-const User = require('./models/user');
+const { UserModel } = require('./models/user');
 const bcrypt = require('bcryptjs');
 const app = express();
 const jwt = require('jsonwebtoken');
@@ -20,14 +20,15 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(pathModule.join(__dirname, 'uploads')));
 
-mongoose.connect('mongodb+srv://blog:1234@cluster0.c2ehsy8.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://blog:hSVvvg2R9yAm5YSv@cluster0.c2ehsy8.mongodb.net/?retryWrites=true&w=majority');
 
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
     try {
-        const userDoc = await User.create({
+        const userDoc = await UserModel.create({
             username,
             password:bcrypt.hashSync(password, salt),
+            roles: 'User',
         });
         res.json(userDoc);
     } catch (e) {
@@ -38,7 +39,7 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
-    const userDoc = await User.findOne({ username });
+    const userDoc = await UserModel.findOne({ username });
     const passOk = bcrypt.compareSync(password, userDoc.password);
     if (passOk) {
         //logged in

@@ -10,6 +10,7 @@ img {
   text-align: center;
   border-radius: 10px;
   border: 2px solid #000;
+  background-color: #534e75;
   .post-image {
     height: auto;
   }
@@ -19,7 +20,7 @@ img {
     .info {
       margin: 6px 0;
       color: #888;
-      font-size: 0.7rem;
+      font-size: 0.9rem;
       font-weight: bold;
       .author {
         color: #333;
@@ -28,6 +29,10 @@ img {
     .summary {
       margin: 10px 0;
       line-height: 1.4rem;
+      color: #2e1c1d;
+    }
+    .content{
+      color: #2e1c1d;
     }
   }
 }

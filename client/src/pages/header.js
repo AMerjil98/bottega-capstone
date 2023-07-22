@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/header.scss";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../UserContext";
+import { handleLogin } from "./login";
 
 export default function Header() {
     const {setUserInfo,userInfo} = useContext(UserContext);
@@ -24,16 +25,26 @@ export default function Header() {
     }
 
     const username = userInfo?.username;
+    const role = userInfo?.role;
+    const navigate = useNavigate();
 
     return (
     <main>
         <header className="head">
-            <Link href="/" className="logo">My Blog</Link>
+            <Link 
+                to="/" 
+                className="logo"
+                onClick={() => {navigate("/");}}
+            >
+                Vidya.news
+            </Link>
             <nav>
                 {username && (
                     <>
                         <span>Hello, {username}</span>
-                        <Link to="/create">Create new post</Link>
+                        {(role ==="Admin" || role ==="Owner") && (
+                            <Link to="/create">Create new post</Link>
+                        )}
                         <a onClick={logout}>Logout</a>
                     </>
                 )}

@@ -10,10 +10,13 @@ export default function RegisterPage() {
       body: JSON.stringify({username,password}),
       headers: {'Content-Type':'application/json'},
     });
-    if (response.status === 200) {
-      alert('registration successful');
+    const data = await response.json();
+    if (response.ok) {
+      const token = data.token;
+      document.cookie = `token=${token}; path=/; expires=${new Date(new Date().getTime() + 24 * 60 * 60 * 1000)}`;
+      alert('Registratioin successful');
     } else {
-      alert('registration failed');
+      alert('Registration failed');
     }
   }
   return (
