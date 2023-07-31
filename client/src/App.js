@@ -1,14 +1,15 @@
-import './styles/app.scss';
-import {Routes, Route} from "react-router-dom";
-import Layout from './layout';
-import IndexPage from './pages/index-page';
-import Login from './pages/login';
-import Register from './pages/register';
-import { UserContextProvider } from './UserContext';
-import CreatePost from './pages/create-post';
-import PostPage from './pages/postpage';
-import EditPost from './pages/editpost';
+import {Route, Routes} from "react-router-dom";
+import {UserContextProvider} from "./UserContext";
 
+import CreatePost from "./pages/create-post";
+import EditPost from "./pages/editpost";
+import Header from "./pages/header";
+import IndexPage from "./pages/index-page";
+import Layout from "./layout";
+import Post from "./pages/post-1";
+import PostPage from "./pages/postpage";
+
+import '../src/styles/app.scss';
 
 function App() {
   return (
@@ -16,8 +17,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/create" element={<CreatePost />} />
           <Route path="/post/:id" element={<PostPage />} />
           <Route path="/edit/:id" element={<EditPost />} />
