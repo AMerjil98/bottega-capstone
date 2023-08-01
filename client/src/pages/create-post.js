@@ -11,16 +11,22 @@ export default function CreatePost() {
   const [summary,setSummary] = useState('');
   const [content,setContent] = useState('');
   const [redirect, setRedirect] = useState(false);
+
   async function createNewPost(ev) {
-    const data = new FormData();
-    data.set('title', title);
-    data.set('summary', summary);
-    data.set('content', content);
     ev.preventDefault();
-    const response = await fetch('http://localhost:4000/post', {
-      method: 'POST',
-      body: data,
-    });
+    const data = {
+      title: title,
+      summary: summary,
+      content: content
+    }
+    const response = await fetch('http://localhost:4000/post', 
+      {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        }, 
+        body: JSON.stringify(data)
+   });
     if (response.ok) {
       setRedirect(true);
     } else {
