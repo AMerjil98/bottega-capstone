@@ -12,7 +12,7 @@ export default function EditPost() {
   const [redirect,setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:4000/post/'+id)
+    fetch('https://vidyanews-2dd3196bd5f5.herokuapp.com/post/'+id)
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
@@ -29,7 +29,7 @@ export default function EditPost() {
     data.set('summary', summary);
     data.set('content', content);
     data.set('id', id);
-    const response = await fetch(`http://localhost:4000/post/${id}`, {
+    const response = await fetch(`https://vidyanews-2dd3196bd5f5.herokuapp.com/post/${id}`, {
       method: 'PUT',
       body: data,
     });
@@ -40,7 +40,7 @@ export default function EditPost() {
 
   const deletePost = async () => {
     try{
-      const response = await fetch(`http://localhost:4000/post/${id}`, {
+      const response = await fetch(`https://vidyanews-2dd3196bd5f5.herokuapp.com/post/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {

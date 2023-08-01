@@ -9,7 +9,7 @@ export default function PostPage() {
   const [postInfo,setPostInfo] = useState(null);
   const {id} = useParams();
   useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`)
+    fetch(`https://vidyanews-2dd3196bd5f5.herokuapp.com/post/${id}`)
       .then(response => {
         response.json().then(postInfo => {
           setPostInfo(postInfo);
